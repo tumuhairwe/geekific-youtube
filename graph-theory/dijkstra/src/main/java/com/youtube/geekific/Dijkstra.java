@@ -37,7 +37,8 @@ public class Dijkstra<T> {
         while (!unsettledNodes.isEmpty()) {
             Node<T> currentNode = unsettledNodes.poll();
             currentNode.getAdjacentNodes()
-                    .entrySet().stream()
+                    .entrySet()
+                    .stream()
                     .filter(entry -> !settledNodes.contains(entry.getKey()))
                     .forEach(entry -> {
                         evaluateDistanceAndPath(entry.getKey(), entry.getValue(), currentNode);
